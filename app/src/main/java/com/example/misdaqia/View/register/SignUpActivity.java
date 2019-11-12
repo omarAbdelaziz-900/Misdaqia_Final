@@ -97,7 +97,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         progressDialog.show();
 
-        Call<RegisterResponse> call = jsonPlaceHolderApi.createUser(name, email, password, re_password);
+        Call<RegisterResponse> call = jsonPlaceHolderApi.registerForUser(new RegisterRequest(name, email, password, re_password,"client"));
 
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
@@ -134,6 +134,8 @@ public class SignUpActivity extends AppCompatActivity {
                 progressDialog.dismiss();
                 Log.d(TAG, "onFailure: " + t.getMessage());
 //                Toast.makeText(SignUpActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUpActivity.this, getString(R.string.change_email), Toast.LENGTH_SHORT).show();
+
                 if (t instanceof ConnectException) {
                     Toast.makeText(SignUpActivity.this, getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
                 }
@@ -141,6 +143,57 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
     }
+
+
+
+//    private void createUser(String name, String email, String password, String re_password) {
+//
+//        progressDialog.show();
+//
+//        Call<RegisterResponse> call = jsonPlaceHolderApi.createUser(name, email, password, re_password);
+//
+//        call.enqueue(new Callback<RegisterResponse>() {
+//            @Override
+//            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+//
+//                if (!response.isSuccessful()) {
+//                    Toast.makeText(SignUpActivity.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
+//                    progressDialog.dismiss();
+//
+//                }
+//
+//
+//                if (response.code() == 500) {
+//                    Toast.makeText(SignUpActivity.this, getString(R.string.exit), Toast.LENGTH_SHORT).show();
+//                }
+//
+//                RegisterResponse registerResponse = response.body();
+//
+//                if (registerResponse.isStatus()){
+//                    progressDialog.dismiss();
+////                    if (Localization.getCurrentLanguageID(SignUpActivity.this)==Localization.arabic){
+//                        Toast.makeText(SignUpActivity.this, getString(R.string.account_created), Toast.LENGTH_SHORT).show();
+////
+////
+//                }else {
+//                    Toast.makeText(SignUpActivity.this, getString(R.string.fail), Toast.LENGTH_SHORT).show();
+//                }
+//                navigateToLogin();
+//            }
+//
+//
+//            @Override
+//            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+//                progressDialog.dismiss();
+//                Log.d(TAG, "onFailure: " + t.getMessage());
+////                Toast.makeText(SignUpActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                if (t instanceof ConnectException) {
+//                    Toast.makeText(SignUpActivity.this, getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//
+//    }
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////

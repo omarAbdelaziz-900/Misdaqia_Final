@@ -12,10 +12,13 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.misdaqia.Adapters.MainCategoriesAdapter;
@@ -46,9 +49,11 @@ public class HomeFragment extends Fragment {
     HeaderFontTextview txt_userName;
     JsonPlaceHolderApi jsonPlaceHolderApi;
     MainFontEdittext txt_search;
+//    SearchView txt_search;
     LinearLayoutManager linearLayoutManager;
     MainCategoriesAdapter mainCategoriesAdapter;
-    List<MainCategory> mainCategoriesList;
+    List<MainCategoryResponse> mainCategoriesList;
+    ArrayList<String> names;
 
     public HomeFragment() {
     }
@@ -67,6 +72,7 @@ public class HomeFragment extends Fragment {
         initView(view);
         jsonPlaceHolderApi = ApiClient.getApiClient().create(JsonPlaceHolderApi.class);
         getCategories();
+        searchFilte();
     }
 
 
@@ -75,6 +81,7 @@ public class HomeFragment extends Fragment {
     if (getActivity()!=null)
         ViewUtil.hideKeyboard(getActivity());
         mainCategoriesList=new ArrayList<>();
+        names=new ArrayList<>();
         categoryRecycler = (RecyclerView) view.findViewById(R.id.category_recycler);
         mazadat_recycler = (RecyclerView) view.findViewById(R.id.mazadat_recycler);
         txt_userName = view.findViewById(R.id.txt_userName);
@@ -83,21 +90,25 @@ public class HomeFragment extends Fragment {
 
     private void getCategories() {
         StateExecuterKt.setState(categoryRecycler, StatesConstants.LOADING_STATE);
-        Call<MainCategoryResponse> call = jsonPlaceHolderApi.getCategories();
+        Call<List<MainCategoryResponse>> call = jsonPlaceHolderApi.getCategories();
 
-        call.enqueue(new Callback<MainCategoryResponse>() {
+        call.enqueue(new Callback<List<MainCategoryResponse>>() {
             @Override
-            public void onResponse(Call<MainCategoryResponse> call, Response<MainCategoryResponse> response) {
+            public void onResponse(Call<List<MainCategoryResponse>> call, Response<List<MainCategoryResponse>> response) {
 
-                List<MainCategory> list = response.body().getMainCategory();
+
                 StateExecuterKt.setState(categoryRecycler, StatesConstants.NORMAL_STATE);
-                mainCategoriesList=list;
+                mainCategoriesList=response.body();
+                for (int i=0;i<mainCategoriesList.size();i++) {
+                names.add(mainCategoriesList.get(i).getName());
+                    Log.d(TAG, "namesnames: " + names+"");
+                }
                 initMainCategoriesRecyclerView();
 //                initMzadCategoriesRecyclerView();
             }
 
             @Override
-            public void onFailure(Call<MainCategoryResponse> call, Throwable t) {
+            public void onFailure(Call<List<MainCategoryResponse>> call, Throwable t) {
                 StateExecuterKt.setState(categoryRecycler, StatesConstants.NORMAL_STATE);
 
                 Log.d(TAG, "onFailure: " + t.getMessage());
@@ -131,5 +142,44 @@ public class HomeFragment extends Fragment {
         mainCategoriesAdapter = new MainCategoriesAdapter(getActivity(), mainCategoriesList);
         mazadat_recycler.setAdapter(mainCategoriesAdapter);
 
+    }
+
+    private void filter(String text) {
+        //new array list that will hold the filtered data
+        ArrayList<String> filterdNames = new ArrayList<>();
+
+        //looping through existing elements
+        for (String s : names) {
+            //if the existing elements contains the search input
+            if (s.toLowerCase().contains(text.toLowerCase())) {
+                //adding the element to filtered list
+                filterdNames.add(s);
+            }
+        }
+
+        //calling a method of the adapter class and passing the filtered list
+        mainCategoriesAdapter.filterList(filterdNames);
+    }
+
+
+
+    public  void searchFilte(){
+        txt_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //after the change calling the method and passing the search input
+                filter(editable.toString());
+            }
+        });
     }
 }

@@ -79,7 +79,45 @@
     <string name="misdaqia">مصداقيه</string>
     <string name="name">الاسم</string>
     <string name="account_created">تمت العمليه بنجاح</string>
+    <string name="pay_type">من فضلك التاكد من نوع الدفع</string>
+    <string name="card_number_invalid">من فضلك التاكد من رقم البطاقه</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="main_home">Home</string>
+    <string name="myaccount">My Account</string>
+    <string name="satchel">Satchel</string>
+    <string name="myauctions">My auctions</string>
+    <string name="instantauction">Add an instant auction</string>
+    <string name="openauction">Add an open auction</string>
+    <string name="auctionprice">Add Auction Price</string>
+    <string name="wallett">Wallet</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
+
+    <string name="amount">Amount</string>
+    <string name="card_number">Card Number</string>
+    <string name="card_expire_date">Card Expiration Date</string>
+    <string name="card_expire_year">Card Expiration Year</string>
+    <string name="card_cvv">Card Cvv</string>
+
+    <string name="visa">Visa</string>
+    <string name="master">Master</string>
+    <string name="payment">Payment</string>
+
+    <string name="card_number_empty">Please Enter Card Number</string>
+    <string name="card_number_error">Card Number Contains 16 numbers</string>
+
+    <string name="choose">Choose</string>
+    <string name="invalid_date">InCorrect Date</string>
+
+    <string name="choose_month">Please Choose Month</string>
+    <string name="choose_year">Please Choose Year</string>
+
+    <string name="choose_card_type">Please Choose Card Type</string>
+    <string name="card_type">Card Type</string>
+    <string name="card_cvv_empty">Please Enter Card Cvv</string>
+    <string name="card_cvv_error">Card Cvv Contains 3 numbers</string>
+    <string name="change_email">change email</string>
 </resources>

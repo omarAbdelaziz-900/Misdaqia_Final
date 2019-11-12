@@ -67,41 +67,41 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        getCategories();
+//        getCategories();
 
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private void getCategories() {
-
-        progressDialog.show();
-            Call<MainCategoryResponse> call = jsonPlaceHolderApi.getCategories();
-
-
-            call.enqueue(new Callback<MainCategoryResponse>() {
-                @Override
-                public void onResponse(Call<MainCategoryResponse> call, Response<MainCategoryResponse> response) {
-
-                    List<MainCategory> list = response.body().getMainCategory();
-
-
-                    progressDialog.dismiss();
-
-                    categoryRecycler.setAdapter(new MainCategoriesAdapter( MainActivity.this,list));
-                }
-
-                @Override
-                public void onFailure(Call<MainCategoryResponse> call, Throwable t) {
-                    progressDialog.dismiss();
-
-                    Log.d(TAG, "onFailure: " + t.getMessage());
-                    Toast.makeText(MainActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-
-
-    }
+//    private void getCategories() {
+//
+//        progressDialog.show();
+//            Call<MainCategoryResponse> call = jsonPlaceHolderApi.getCategories();
+//
+//
+//            call.enqueue(new Callback<MainCategoryResponse>() {
+//                @Override
+//                public void onResponse(Call<MainCategoryResponse> call, Response<MainCategoryResponse> response) {
+//
+//                    List<MainCategory> list = response.body().getMainCategory();
+//
+//
+//                    progressDialog.dismiss();
+//
+//                    categoryRecycler.setAdapter(new MainCategoriesAdapter( MainActivity.this,list));
+//                }
+//
+//                @Override
+//                public void onFailure(Call<MainCategoryResponse> call, Throwable t) {
+//                    progressDialog.dismiss();
+//
+//                    Log.d(TAG, "onFailure: " + t.getMessage());
+//                    Toast.makeText(MainActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//
+//
+//    }
 
 
 

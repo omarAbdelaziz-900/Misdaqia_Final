@@ -80,4 +80,41 @@
     <string name="misdaqia">مصداقيه</string>
     <string name="name">الاسم</string>
     <string name="account_created">تمت العمليه بنجاح</string>
+
+    <string name="pay_type">من فضلك التاكد من نوع الدفع</string>
+    <string name="card_number_invalid">من فضلك التاكد من رقم البطاقه</string>
+    <string name="main_home">الصفحه الرئيسيه</string>
+    <string name="myaccount">حسابي</string>
+    <string name="satchel">الحقيبه</string>
+    <string name="myauctions">مزاداتي</string>
+    <string name="instantauction">اضافه مزاد فوري</string>
+    <string name="openauction">اضافه مزاد مفتوح</string>
+    <string name="auctionprice">اضافه مزاد مسعر</string>
+    <string name="wallett">المحفظه</string>
+    <string name="setting">الاعدادات</string>
+    <string name="logout">تسجيل الخروج</string>
+
+
+    <string name="amount">الكميه</string>
+    <string name="card_number">رقم البطاقه</string>
+    <string name="card_expire_date">تاريخ انتهاء صلاحية البطاقه</string>
+    <string name="card_expire_year">سنة انتهاء صلاحية البطاقة</string>
+    <string name="card_cvv">رقم بطاقه السيره الذاتيه</string>
+
+    <string name="visa">Visa</string>
+    <string name="master">Master</string>
+    <string name="payment">الدفع</string>
+
+    <string name="card_number_empty">من فضلك ادخل رقم البطاقه</string>
+    <string name="card_number_error">رقم البطاقه يحتوي علي 16 رقم</string>
+    <string name="choose">اختر</string>
+    <string name="invalid_date">تاريخ غير مسموح به</string>
+    <string name="choose_month">من فضلك اختار الشهر</string>
+    <string name="choose_year">من فضلك اختار السنه</string>
+    <string name="choose_card_type">من فضلك اختار نوع الدفع</string>
+    <string name="card_type">نوع الدفع</string>
+    <string name="card_cvv_empty">من فضلك ادخل رقم بطاقة السيرة الذاتية</string>
+    <string name="card_cvv_error">رقم بطاقة السيرة الذاتية يحتوي علي 3 ارقام</string>
+    <string name="change_email">change email</string>
+
 </resources>

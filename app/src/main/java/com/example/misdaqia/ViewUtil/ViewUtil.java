@@ -386,4 +386,20 @@ public final class ViewUtil {
             progressDialog.dismiss();
         }
     }
+    public static void configureSpinner(Spinner spinner) {
+        spinner.setScrollContainer(true);
+//        spinner.setBackgroundResource(0);
+//        spinner.setDropDownWidth(200);
+        spinner.setPadding(50,50,0,50);
+        spinner.setPopupBackgroundResource(R.color.light_brown);
+        spinner.setPaddingRelative(20, 20, 20, 20);
+    }
+    public static void configureSpinnerGreen(Spinner spinner) {
+        spinner.setScrollContainer(true);
+//        spinner.setDropDownWidth(200);
+//        spinner.setPopupBackgroundResource(R.color.green_bg_spinner);
+        spinner.setPopupBackgroundResource(R.color.green_bg_spinner);
+        spinner.setPaddingRelative(20, 20, 20, 20);
+    }
+
 }

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/payment_container"
+    tools:context=".View.PaymentPage.WebviewActivity">
+
+    <include
+        android:id="@+id/include"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        layout="@layout/app_bar_for_activity"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:isScrollContainer="false"
+        android:layout_above="@id/payment_btn"
+        android:layout_below="@id/include"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+    <LinearLayout
+        android:layout_above="@+id/payment_btn"
+        android:layout_below="@id/include"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <com.example.misdaqia.Helper.MainFontTextview
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:text="@string/card_type"
+        android:textSize="@dimen/_14ssp"
+        android:inputType="text"
+        android:id="@+id/txt"
+        />
+
+
+        <CheckBox
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:id="@+id/visa_chk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/visa"
+            android:gravity="right|center"
+            android:layout_marginStart="@dimen/_15sdp"/>
+
+        <CheckBox
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/master_chk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/master"
+            android:gravity="right|center"
+            android:layout_marginStart="@dimen/_15sdp"/>
+
+
+        <RadioGroup
+        android:layoutDirection="rtl"
+        android:layout_gravity="right"
+        android:padding="@dimen/_12sdp"
+        android:layout_below="@+id/txt"
+        android:id="@+id/radioGroupPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+
+        <RadioButton
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textDirection="rtl"
+            android:gravity="right|center"
+            android:id="@+id/cashRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:textSize="@dimen/_14ssp"
+            android:button="@drawable/rb_selector"
+            android:text="@string/visa"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColor="@color/color_radio_button" />
+
+        <RadioButton
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textDirection="rtl"
+            android:gravity="right|center"
+            android:id="@+id/onlineRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/master"
+            android:paddingEnd="10dp"
+            android:padding="6dp"
+            android:paddingStart="10dp"
+            android:drawablePadding="10dp"
+            android:textSize="@dimen/_14ssp"
+            android:button="@drawable/rb_selector"
+            android:textColor="@color/color_radio_button" />
+    </RadioGroup>
+
+
+
+    <LinearLayout
+        android:layout_below="@+id/radioGroupPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <RelativeLayout
+        android:padding="@dimen/_16sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.example.misdaqia.Helper.MainFontTextview
+            android:id="@+id/amount"
+            android:layout_alignParentStart="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:text="@string/amount"
+            android:textSize="@dimen/_12ssp"
+            android:inputType="text"
+            />
+
+
+        <com.example.misdaqia.Helper.MainFontEdittext
+            android:layout_toEndOf="@id/amount"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/amount_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:hint="@string/amount"
+            android:inputType="number"
+            android:textSize="@dimen/_12ssp"
+            android:maxLength="16"
+       />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:padding="@dimen/_16sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.example.misdaqia.Helper.MainFontTextview
+            android:id="@+id/card_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:text="@string/card_number"
+            android:textSize="@dimen/_12ssp"
+            android:layout_centerVertical="true"
+            android:inputType="text"
+            />
+
+
+        <com.example.misdaqia.Helper.MainFontEdittext
+            android:layout_toEndOf="@id/card_number"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/card_number_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:hint="@string/card_number"
+            android:inputType="number"
+            android:maxLength="16"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:padding="@dimen/_16sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.example.misdaqia.Helper.MainFontTextview
+            android:id="@+id/card_expire_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:text="@string/card_expire_date"
+            android:textSize="@dimen/_12ssp"
+            android:inputType="text"
+            android:layout_centerVertical="true"
+            />
+
+
+        <Spinner
+            android:layout_toEndOf="@id/card_expire_date"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/card_expire_date_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:hint="@string/card_expire_date"
+            android:inputType="text"
+            android:maxLength="16"
+            app:backgroundTint="@color/color_green"
+            />
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:padding="@dimen/_16sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.example.misdaqia.Helper.MainFontTextview
+            android:id="@+id/card_expire_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:text="@string/card_expire_year"
+            android:textSize="@dimen/_12ssp"            android:inputType="text"
+            />
+
+
+        <Spinner
+            android:layout_toEndOf="@id/card_expire_year"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/card_expire_year_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:hint="@string/card_expire_year"
+            android:inputType="text"
+            android:maxLength="16"
+            app:backgroundTint="@color/color_green"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:padding="@dimen/_16sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.example.misdaqia.Helper.MainFontTextview
+            android:id="@+id/card_cvv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:text="@string/card_cvv"
+            android:textSize="@dimen/_12ssp"
+            android:layout_centerVertical="true"
+            android:inputType="text"
+            />
+
+
+        <com.example.misdaqia.Helper.MainFontEdittext
+            android:layout_toEndOf="@id/card_cvv"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/card_cvv_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:hint="@string/card_cvv"
+            android:inputType="number"
+            android:maxLength="16"
+            />
+
+    </RelativeLayout>
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+    <com.example.misdaqia.Helper.MainFontButton
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/payment_btn"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:textAllCaps="false"
+        android:background="@drawable/button_orange"
+        android:text="@string/payment"
+        android:textColor="#fff"
+        android:textSize="12sp"/>
+
+    <View
+        android:id="@+id/view_loading"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent"/>
+
+</RelativeLayout>

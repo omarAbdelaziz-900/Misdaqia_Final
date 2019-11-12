@@ -1,5 +1,6 @@
 package com.example.misdaqia.View;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,6 +22,7 @@ import com.example.misdaqia.Model.NavigationDrawerItem;
 import com.example.misdaqia.R;
 import com.example.misdaqia.Utils.FragmentUtils;
 import com.example.misdaqia.Utils.RecyclerDividerItemDecoration;
+import com.example.misdaqia.View.login.SignInActivity;
 import com.example.misdaqia.ViewUtil.ViewUtil;
 
 import java.util.ArrayList;
@@ -64,7 +66,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationDrawerA
         drawerItem.add(new NavigationDrawerItem(R.drawable.ic_shopping_cart_black_24dp, "الحقيبه"));
         drawerItem.add(new NavigationDrawerItem(R.drawable.ic_favorite_black_24dp, "مزاداتي"));
         drawerItem.add(new NavigationDrawerItem(R.drawable.ic_add_circle_outline_black_24dp, "اضافه مزاد فوري"));
-
         drawerItem.add(new NavigationDrawerItem(R.drawable.ic_add_circle_outline_black_24dp, "اضافه مزاد مفتوح"));
         drawerItem.add(new NavigationDrawerItem(R.drawable.ic_add_circle_outline_black_24dp, "اضافه مزاد مسعر"));
         drawerItem.add(new NavigationDrawerItem(R.drawable.ic_style_black_24dp, "المحفظه"));
@@ -145,6 +146,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationDrawerA
         }else if (position == 9) {
             showFragment(new SettingFragment(),"الاعدادات");
 //            Toast.makeText(this, position+"", Toast.LENGTH_SHORT).show();
+        }else if (position == 10) {
+            Intent intent=new Intent(HomeActivity.this, SignInActivity.class);
+            startActivity(intent);
+            finishAffinity();
         }
     }
 

@@ -96,6 +96,7 @@ public class SignInActivity extends AppCompatActivity {
                         PreferenceHelper.setUserFirstName(SignInActivity.this,loginResponse.getUser().getName());
                         Log.e("userName",loginResponse.getUser().getName());
                         PreferenceHelper.setRemmemberMe(SignInActivity.this,true);
+                        PreferenceHelper.setUsetId(SignInActivity.this,loginResponse.getUser().getId());
                         navigateToHome();
                     }else {
                         Toast.makeText(SignInActivity.this,getString(R.string.fail), Toast.LENGTH_SHORT).show();

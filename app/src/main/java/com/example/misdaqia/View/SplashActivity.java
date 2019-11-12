@@ -16,6 +16,7 @@ import com.example.misdaqia.R;
 import com.example.misdaqia.Services.ApiClient;
 import com.example.misdaqia.Services.JsonPlaceHolderApi;
 import com.example.misdaqia.SharedPreferences.PreferenceHelper;
+import com.example.misdaqia.View.PaymentPage.WebviewActivity;
 import com.example.misdaqia.View.login.SignInActivity;
 import com.example.misdaqia.localizationUtil.Localization;
 
@@ -69,10 +70,10 @@ public class SplashActivity extends AppCompatActivity {
                             if (!TextUtils.isEmpty(email)) {
                                 Login(email, password);
 
-                            } else {
+                            }else {
 
                                 if (PreferenceHelper.getRemmemberMe(SplashActivity.this)) {
-//                                     intent = new Intent(SplashActivity.this, MainActivity.class);
+//                                     intent = new Intent(SplashActivity.this, WebviewActivity.class);
                                      intent = new Intent(SplashActivity.this, HomeActivity.class);
                                 }else {
                                      intent = new Intent(SplashActivity.this, SignInActivity.class);
@@ -85,10 +86,7 @@ public class SplashActivity extends AppCompatActivity {
                 }
             }
         };
-
         splash_screen.start();
-
-
     }
 
 
@@ -116,6 +114,8 @@ public class SplashActivity extends AppCompatActivity {
 
                     if (loginUserResponse.getEmail().equals(Email)) {
                         startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+//                        intent = new Intent(SplashActivity.this, WebviewActivity.class);
+
                         finish();
 
                     } else {

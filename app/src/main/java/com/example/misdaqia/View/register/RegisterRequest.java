@@ -9,10 +9,20 @@ public class RegisterRequest {
      * user_type : client
      */
 
+    private String name;
     private String email;
     private String password;
     private String password_confirmation;
     private String user_type;
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getEmail() {
         return email;
@@ -47,7 +57,8 @@ public class RegisterRequest {
     }
 
 
-    public RegisterRequest(String email, String password, String password_confirmation, String user_type) {
+    public RegisterRequest(String name ,String email, String password, String password_confirmation, String user_type) {
+        this.name = name;
         this.email = email;
         this.password = password;
         this.password_confirmation = password_confirmation;

@@ -63,6 +63,10 @@ public class ApiClient {
 //                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
 //                 .create();
 
+         Gson gson = new GsonBuilder()
+                 .setLenient()
+                 .create();
+
          HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
          interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -73,7 +77,7 @@ public class ApiClient {
           retrofit = new Retrofit.Builder()
                  .baseUrl(BASE_URL)
                  .client(client)
-                 .addConverterFactory(GsonConverterFactory.create())
+                 .addConverterFactory(GsonConverterFactory.create(gson))
                  .build();
          return retrofit;
 

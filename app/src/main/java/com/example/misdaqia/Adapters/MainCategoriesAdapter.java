@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import com.example.misdaqia.Helper.MainFontTextview;
 import com.example.misdaqia.Model.Category;
 import com.example.misdaqia.Model.MainCategory;
+import com.example.misdaqia.Model.MainCategoryResponse;
 import com.example.misdaqia.R;
 import com.example.misdaqia.View.Buldings;
 import com.example.misdaqia.View.Cars;
@@ -30,14 +31,25 @@ import java.util.List;
 
 public class MainCategoriesAdapter extends RecyclerView.Adapter<MainCategoriesAdapter.MyViewHolder> {
 
-    List<MainCategory> categories;
+    List<MainCategoryResponse> categories;
     Context context;
     Intent intent;
+    ArrayList<String> filterdNames =new ArrayList<>();
 
-    public MainCategoriesAdapter(Context context, List<MainCategory> categories) {
+
+    public MainCategoriesAdapter(Context context, List<MainCategoryResponse> categories) {
         this.categories = categories;
         this.context = context;
+//        this.filterdNames = filterdNames;
     }
+
+    public MainCategoriesAdapter(Context context, ArrayList<String> filterdNames) {
+        this.filterdNames = filterdNames;
+        this.context = context;
+//        this.filterdNames = filterdNames;
+    }
+
+
 
     @NonNull
     @Override
@@ -51,6 +63,8 @@ public class MainCategoriesAdapter extends RecyclerView.Adapter<MainCategoriesAd
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int i) {
 
         holder.itemname.setText(categories.get(i).getName());
+
+        filterdNames.add(categories.get(i).getName());
 
         Picasso.get().load(categories.get(i).getImage()).into(holder.imageHeader);
 
@@ -97,4 +111,12 @@ public class MainCategoriesAdapter extends RecyclerView.Adapter<MainCategoriesAd
 
         }
     }
+
+    public void filterList(ArrayList<String> filterdNames) {
+        this.filterdNames = filterdNames;
+        notifyDataSetChanged();
+    }
+
+
+
 }

@@ -33,7 +33,7 @@ public class PreferenceHelper {
 
     public static String TAG_TALAB_KIND = "talab_kind";
     public static String TAG_TALAB_EDUCATION = "talab_kind_education";
-    public static String TAG_TALAB_SERVICE = "talab_kind_service";
+    public static String TAG_USER_ID = "tag_user_id";
 
     public static String TAG_OF_USER = "user_id";
     public static String TAG_OF_IMAGE_KIND = "image_kind";
@@ -51,20 +51,20 @@ public class PreferenceHelper {
     }
 
 
-    public static void setUserIdAfterLogin(Context context, String value) {
-        SharedPreferencesTool.setString(context, TAG_OF_USER, value);
+    public static void setUserIdAfterLogin(Context context, int value) {
+        SharedPreferencesTool.setInt(context, TAG_OF_USER, value);
     }
 
     public static String getUserIdAfterLogin(Context context) {
         return SharedPreferencesTool.getString(context, TAG_OF_USER);
     }
 
-    public static void saveTalabKindService(Context context, int value) {
-        SharedPreferencesTool.setInt(context, TAG_TALAB_SERVICE, value);
+    public static void setUsetId(Context context, int value) {
+        SharedPreferencesTool.setInt(context, TAG_USER_ID, value);
     }
 
-    public static int getTalabKindService(Context context) {
-        return SharedPreferencesTool.getInt(context, TAG_TALAB_SERVICE);
+    public static int getUserId(Context context) {
+        return SharedPreferencesTool.getInt(context, TAG_USER_ID);
     }
 
     public static void saveTalabKindEducation(Context context, int value) {

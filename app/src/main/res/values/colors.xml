@@ -12,5 +12,10 @@
     <color name="orange">#F58936</color>
     <color name="red">#FD3426</color>
 
+    <color name="color_radio_button">#878787</color>
+    <color name="tint_gray_line">#b7b7b7</color>
+    <color name="color_green">#1d7041</color>
+    <color name="light_brown">#FFAB8C4C</color>
+    <color name="green_bg_spinner">#9abcab</color>
 </resources>
 
